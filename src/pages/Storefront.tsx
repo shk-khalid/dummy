@@ -17,48 +17,20 @@ const Storefront: React.FC = () => {
 
   // Simulate fetching mock data from API
   useEffect(() => {
-    const fetchMockOffers = () => {
-      setTimeout(() => {
-        setOffers([
-          {
-            id: 1,
-            price: '₹499',
-            term: 'Monthly',
-            features: [
-              'Unlimited transactions',
-              'Advanced security features',
-              '24/7 customer support',
-              'Detailed analytics',
-            ],
-          },
-          {
-            id: 2,
-            price: '₹1299',
-            term: 'Quarterly',
-            features: [
-              'Unlimited transactions',
-              'Priority support',
-              'Business insights',
-              'Dedicated dashboard',
-            ],
-          },
-          {
-            id: 3,
-            price: '₹4999',
-            term: 'Yearly',
-            features: [
-              'Everything in Quarterly',
-              'Custom integrations',
-              'White-labeling support',
-              'Account manager',
-            ],
-          },
-        ]);
+    const fetchOffers = async () => {
+      try {
+        const response = await fetch('https://6810a53827f2fdac241237ed.mockapi.io/offers');
+        if (!response.ok) throw new Error('Network response was not ok');
+        const data = await response.json();
+        setOffers(data);
+      } catch (error) {
+        console.error('Failed to fetch offers:', error);
+      } finally {
         setLoading(false);
-      }, 1000);
+      }
     };
-
-    fetchMockOffers();
+  
+    fetchOffers();
   }, []);
 
   return (
