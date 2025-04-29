@@ -17,7 +17,7 @@ const Header: React.FC<HeaderProps> = ({ isStorefront }) => {
   };
 
   const headerClass = isStorefront
-    ? 'fixed w-full z-50 transition-all duration-300 bg-transparen'
+    ? 'fixed w-full z-50 transition-all duration-300 bg-opacity-50 backdrop-blur-lg bg-cyan-800'
     : 'bg-gray-900 border-b border-gray-800';
 
   const textClass = 'text-gray-100';
@@ -82,12 +82,6 @@ const Header: React.FC<HeaderProps> = ({ isStorefront }) => {
               </>
             ) : (
               <>
-                <Link to="/merchant" className={`block ${textClass} ${hoverClass} transition-colors font-medium ${location.pathname === '/merchant' && 'text-cyan-400'}`}>
-                  Dashboard
-                </Link>
-                <Link to="/merchant" className={`block ${textClass} ${hoverClass} transition-colors font-medium`}>
-                  Transactions
-                </Link>
                 <Link to="/storefront" className="block bg-protega-600 text-white px-4 py-2 rounded-md font-medium hover:bg-protega-700 transition-colors text-center">
                   View Storefront
                 </Link>
