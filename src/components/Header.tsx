@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Menu, X, ShieldCheck } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -9,7 +9,6 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ isStorefront }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation();
 
 
   const toggleMobileMenu = () => {
@@ -21,7 +20,6 @@ const Header: React.FC<HeaderProps> = ({ isStorefront }) => {
     : 'bg-gray-900 border-b border-gray-800';
 
   const textClass = 'text-gray-100';
-  const hoverClass = 'hover:text-cyan-400';
 
   return (
     <header className={headerClass}>
