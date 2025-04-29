@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Header from '../components/Header';
-import { LineChart, ArrowRight, BarChart } from 'lucide-react';
+import { LineChart, ArrowRight, BarChart, FileText } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Merchant: React.FC = () => {
   return (
@@ -21,7 +22,15 @@ const Merchant: React.FC = () => {
               <h1 className="text-2xl font-bold text-gray-800">Merchant Dashboard</h1>
               <p className="text-gray-600">Welcome back! Here's your business at a glance</p>
             </div>
-            
+            <div className="mt-4 md:mt-0 flex space-x-3">
+              <Link 
+                to="/merchant/policies"
+                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-protega-600 hover:bg-protega-700"
+              >
+                <FileText className="mr-2 h-4 w-4" />
+                View Policies
+              </Link>
+            </div>
           </div>
         </div>
       </div>
